@@ -1068,7 +1068,7 @@ $arr = explode(' ', $data);
 echo count($arr), '<br>';
 $start = microtime(true);
 foreach ($arr as $key => $item) {
-  $item === $item;
+//  $item === $item;
   echo $key;
 }
 echo '<br>', microtime(true) - $start;
@@ -1078,8 +1078,17 @@ echo $iter->count(), '<br>';
 
 $start2 = microtime(true);
 foreach ($iter as $key => $item) {
-  $item === $item;
+//  $item === $item;
   echo $key;
 }
 echo '<br>', microtime(true) - $start2;
-?>
+echo '<br>';
+$start2 = microtime(true);
+
+$iter->rewind();
+while ($iter->valid()) {
+//  $iter->current() === $iter->current();
+  echo $iter->key();
+  $iter->next();
+}
+echo '<br>', microtime(true) - $start2;
